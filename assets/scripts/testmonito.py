@@ -9,14 +9,16 @@ from src.core.Char import *
 import sys
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+pygame.display.set_caption(TITLE)
+print("ayy")
 spri = Spritebatch(ASSETS_DIR+"sprites/player/player.png",None);
 npc = Char(16,16,"Changuito")
 npc.set_images([spri.image_at(0,0,16,16),spri.image_at(0,16*2,16,16),spri.image_at(0,16*6,16,16)])
 
-npc.y=150
 
 RenderGroup = pygame.sprite.Group()
 RenderGroup.add(npc);
+
 
 def Update(self):
     npc.cur_image =0;
@@ -26,13 +28,14 @@ def Update(self):
     if(Controles.izq):
         npc.cur_image = 1;
         npc.vecx = -1
-
     npc.update_internals();
 
 def Draw(self):
     screen.fill((0,0,0))
     RenderGroup.draw(screen)
+    print("AQUI")
 
 def Init():
+    print("LMAOlolo")
     Global.Update = Update
     Global.Draw = Draw

@@ -13,8 +13,8 @@ from src.core.Events import *
 def main():
     pygame.init()
 #    pygame.mixer.init()
-#    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    pygame.display.set_caption(TITLE)
+    #screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    #pygame.display.set_caption(TITLE)
 
     try:
         Global.Init(sys.argv[1]);
