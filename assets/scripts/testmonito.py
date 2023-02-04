@@ -21,7 +21,7 @@ npc.y=0
 
 
 RenderGroup = pygame.sprite.Group()
-RenderGroup.add(npc);
+RenderGroup.add(npc)
 
 
 print("Si")
@@ -29,15 +29,15 @@ camera = Cam(0,0,SCREEN_WIDTH,SCREEN_HEIGHT)
 
 
 def Update(self):
-    npc.cur_image =0;
+    npc.cur_image =0
     if(Controles.der):
-        npc.cur_image = 2;
+        npc.cur_image = 2
         npc.vecx = 1
     if(Controles.izq):
-        npc.cur_image = 1;
+        npc.cur_image = 1
         npc.vecx = -1
 
-    npc.update_internals();
+    npc.update_internals()
 
 def Draw(self):
     print("lol")

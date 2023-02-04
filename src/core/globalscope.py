@@ -22,7 +22,7 @@ class State:
     def Init(self,File):
         self.SetResolution(self.W,self.H)
         mod = importlib.import_module(File)
-        mod.Init();
+        mod.Init()
             
 
 Global = State(SCREEN_WIDTH,SCREEN_HEIGHT);

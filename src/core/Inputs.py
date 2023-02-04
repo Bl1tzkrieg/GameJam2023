@@ -8,7 +8,7 @@ class Gamepad:
         self.can = False
         self.esc = False
     def __init__ (self):
-        self.Reset();
+        self.Reset()
 
 Controles = Gamepad()
 

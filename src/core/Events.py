@@ -29,8 +29,8 @@ def gpad_process(event,cond,boolean):
 def E_process():
 
     for event in pygame.event.get():
-        gpad_process(event,pygame.KEYDOWN,True);
-        gpad_process(event,pygame.KEYUP,False);
+        gpad_process(event,pygame.KEYDOWN,True)
+        gpad_process(event,pygame.KEYUP,False)
         if event.type == pygame.QUIT:
             print("Muerto")
             sys.exit()
