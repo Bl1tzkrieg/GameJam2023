@@ -1,8 +1,9 @@
 import pygame
+from src.core.functions import *
 
 class Spritebatch:
     def __init__(self,FILE,r,g,b):
-        self.sheet = pygame.image.load(FILE).convert()
+        self.sheet = load_image(FILE,alpha=True)
         self.colorkey = (r,g,b)
         self.hashtable = {}
     def image_at(self,x,y,dx,dy):

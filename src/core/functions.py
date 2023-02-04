@@ -3,8 +3,8 @@ from pygame.locals import *
 import os
 import sys
 
-def load_image(nombre, dir_imagen, alpha=False):
-    ruta = os.path.join(dir_imagen, nombre)
+def load_image(path, alpha=False):
+    ruta = path
     try:
         image = pygame.image.load(ruta)
     except:
