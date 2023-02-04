@@ -14,10 +14,10 @@ print("Si")
 spri = Spritebatch(ASSETS_DIR+"sprites/player/player.png",(0,0,0));
 npc = Char(16,16,"Changuito")
 npc.set_images([spri.image_at(0,0,16,16),spri.image_at(0,16*2,16,16),spri.image_at(0,16*6,16,16)])
-
+npc.set_anim("test",[0,1,2])
 
 fondo=Spritebatch(ASSETS_DIR+"/levels/level.png",None).image_at(0,0,1600,256);
-npc.y=0
+npc.y=178
 
 
 RenderGroup = pygame.sprite.Group()
@@ -25,26 +25,27 @@ RenderGroup.add(npc)
 
 
 print("Si")
-camera = Cam(0,0,SCREEN_WIDTH,SCREEN_HEIGHT)
-
+camera = Cam(0,0,256,240)
 
 def Update(self):
-    npc.cur_image =0
     if(Controles.der):
-        npc.cur_image = 2
         npc.vecx = 1
     if(Controles.izq):
-        npc.cur_image = 1
         npc.vecx = -1
 
     npc.update_internals()
+    camera.LookAt(npc.x+6,npc.y-58)
+
 
 def Draw(self):
-    print("lol")
     camera.surface.fill((0,0,0))
+    camera.blit(fondo,Rect(0,0,1600,256))
     RenderGroup.draw(camera)
 
-    Global.screen.blit(camera.surface,(0,0));
+   
+
+
+    Global.screen.blit(camera.getSubSurface(),(0,0));
 
 def Init():
     Global.Update = Update
