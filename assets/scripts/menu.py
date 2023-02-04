@@ -36,7 +36,8 @@ opciones = [
     ]
 pygame.font.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-fondo = pygame.image.load(ASSETS_DIR+"sprites/fondo.jpg").convert()
+fondo = load_image(ASSETS_DIR+"sprites/fondo.jpg", True).convert()
+fondo = pygame.transform.scale(fondo, (SCREEN_WIDTH, SCREEN_HEIGHT))
 menu = Menu(opciones)
 
 def DrawBG(self):
