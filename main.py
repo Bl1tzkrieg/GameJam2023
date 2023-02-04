@@ -14,7 +14,6 @@ def main():
 #    pygame.mixer.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption(TITLE)
-#    background = load_image("fondo.jpg", ASSETS_DIR+"sprites", alpha=False)
 
     Global.Init(sys.argv[1]);
 
@@ -22,7 +21,6 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
- #       screen.blit(background, (0, 0))
         Global.Update(Global);
         Global.Draw(Global);
         pygame.display.flip()
