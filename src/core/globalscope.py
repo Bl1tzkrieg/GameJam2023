@@ -1,9 +1,9 @@
 import importlib
 
 class State:
-    def Update(self):
+    def Update(self,placeholder):
         pass
-    def Draw(self,self):
+    def Draw(self,placeholder):
         pass
     def Init(self,File):
         mod = importlib.import_module(File)
