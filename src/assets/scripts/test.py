@@ -1,9 +1,15 @@
-from core.globalscope import *
+from src.core.globalscope import *
+
 
 
 def lmao(self):
     print("LMAO")
-    Global.Update = nivel2
 
+def lmaodraw(self):
+    pass;
 
-Global.Update = lmao
+def Init():
+    print("LOAD")
+    Global.Update = lmao
+    Global.Draw = lmaodraw
+
