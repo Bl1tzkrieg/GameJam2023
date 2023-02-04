@@ -21,11 +21,14 @@ def main():
     except:
         sys.exit()
 
+    Clock = pygame.time.Clock()
+
     while True:
         E_process();
         Global.Update(Global);
         Global.Draw(Global);
         pygame.display.flip()
+        Clock.tick(60);
 
 if __name__ == "__main__":
     main()

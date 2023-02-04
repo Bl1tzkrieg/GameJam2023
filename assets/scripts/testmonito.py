@@ -13,9 +13,7 @@ spri = Spritebatch(ASSETS_DIR+"sprites/player/player.png",(0,0,0));
 npc = Char(16,16,"Changuito")
 npc.set_images([spri.image_at(0,0,16,16),spri.image_at(0,16*2,16,16),spri.image_at(0,16*6,16,16)])
 
-fondo = Spritebatch(ASSETS_DIR+"/levels/level.png",None).image_at(0,0,1600,256);
-
-
+fondo=Spritebatch(ASSETS_DIR+"/levels/level.png",None).image_at(0,0,1600,256);
 npc.y=328
 
 RenderGroup = pygame.sprite.Group()
