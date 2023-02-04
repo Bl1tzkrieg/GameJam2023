@@ -9,7 +9,7 @@ from src.core.Char import *
 import sys
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-spri = Spritebatch(ASSETS_DIR+"sprites/player/player.png",None);
+spri = Spritebatch(ASSETS_DIR+"sprites/player/player.png",(0,0,0));
 npc = Char(16,16,"Changuito")
 npc.set_images([spri.image_at(0,0,16,16),spri.image_at(0,16*2,16,16),spri.image_at(0,16*6,16,16)])
 
