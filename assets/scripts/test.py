@@ -6,7 +6,7 @@ def lmao(self):
     print("LMAO")
 
 def lmaodraw(self):
-    pass;
+    pass
 
 def Init():
     print("LOAD")

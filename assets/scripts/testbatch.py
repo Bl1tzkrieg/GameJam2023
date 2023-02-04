@@ -15,16 +15,16 @@ npc = Char(0,0,"Changuito")
 npc.set_images([spri.image_at(0,0,256,256),spri.image_at(64,0,256,256)])
 
 RenderGroup = pygame.sprite.Group()
-RenderGroup.add(npc);
+RenderGroup.add(npc)
 
 
 def Update(self):
-    npc.cur_image =0;
+    npc.cur_image =0
     if(Controles.der):
         print("lmao")
-        npc.cur_image = 1;
-    npc.update_image();
-    npc.update_rect();
+        npc.cur_image = 1
+    npc.update_image()
+    npc.update_rect()
 
 def Draw(self):
     screen.fill((0,0,0))

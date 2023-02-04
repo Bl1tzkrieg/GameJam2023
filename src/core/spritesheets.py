@@ -7,9 +7,9 @@ class Spritebatch:
         self.colorkey = colorkey
         self.hashtable = {}
     def image_at(self,x,y,dx,dy):
-        hsh = x+y+dx+dy;
+        hsh = x+y+dx+dy
         try:
-            img = self.hashtable[hsh];
+            img = self.hashtable[hsh]
             return img
         except KeyError:
             print("Nuevo pedazo de batch")

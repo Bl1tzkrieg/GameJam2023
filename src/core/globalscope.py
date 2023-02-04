@@ -7,8 +7,8 @@ class State:
         pass
     def Init(self,File):
         mod = importlib.import_module(File)
-        mod.Init();
+        mod.Init()
             
 
-Global = State();
+Global = State()
 print("Global Init")
