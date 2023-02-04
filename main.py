@@ -24,7 +24,7 @@ def main():
                 sys.exit()
  #       screen.blit(background, (0, 0))
         Global.Update(Global);
-        Global.Draw();
+        Global.Draw(Global);
         pygame.display.flip()
 
 if __name__ == "__main__":
