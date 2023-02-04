@@ -1,4 +1,4 @@
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
-ASSETS_DIR = "assets/"
+ASSETS_DIR = "src/assets/"
 TITLE = "GameJam2023"

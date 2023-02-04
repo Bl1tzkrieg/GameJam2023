@@ -1,7 +1,7 @@
 import pygame
 from pygame.locals import *
-from core.constants import *
-from core.functions import *
+from src.core.constants import *
+from src.core.functions import *
 
 import sys
 
