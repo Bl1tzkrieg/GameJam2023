@@ -7,6 +7,8 @@ from src.core.spritesheets import *
 from src.core.Inputs import *
 from src.interfaces.menu import *
 from assets.base.soundplayer import SoundPlayer
+from src.core.Cam import *
+from assets.base.mandril import *
 
 import sys
 
@@ -45,6 +47,23 @@ fondo = pygame.transform.scale(fondo, (SCREEN_WIDTH, SCREEN_HEIGHT))
 #pygame.mixer.music.load(ASSETS_DIR+"sounds/menu.ogg")
 menu = Menu(opciones)
 
+camera = Cam(16*15,0,256,240)
+sprig = Spritebatch(ASSETS_DIR+"sprites/player/player.png",(0,0,0));
+RenderGroup = pygame.sprite.Group()
+mono = Macaco(16,16,"Bueno"+str(0))
+mono.Afiliacion=1
+mono.LoadSheet(sprig,4,8)
+mono.y = 75
+mono.x = (16*10)+(16*-5)
+RenderGroup.add(mono)
+
+mono = Macaco(16,16,"Bueno"+str(0))
+mono.Afiliacion=1
+mono.LoadSheet(sprig,4,8)
+mono.y = 75
+mono.x = (16*10)+(16*15)
+RenderGroup.add(mono)
+
 def DrawBG(self):
     screen.fill((0,0,0))
     if Global.width_t < SCREEN_WIDTH:
@@ -54,8 +73,15 @@ def DrawBG(self):
     screen.blit(pygame.transform.scale(fondo, (Global.width_t, Global.height_t)),(0,0))
     if Global.timer == 0:
         menu.imprimir(screen)
+    camera.surface.fill((0,0,0))
+    RenderGroup.draw(camera)
+    sub = camera.getSubSurface()
+    sub.set_colorkey((0,0,0))
+    print("COLORKEY"+str(sub.get_colorkey()))
+    screen.blit(sub,(0,0))
 
 def Update(self):
+    RenderGroup.update()
     if(Controles.esc == True):
         sys.exit()
     if Global.timer == 0:
