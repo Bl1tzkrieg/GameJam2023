@@ -8,33 +8,38 @@ from src.core.Inputs import *
 from src.core.Char import *
 import sys
 from src.core.Cam import *
+from assets.base.mandril import *
+from assets.base.player import *
 
 print("Si")
 #screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 spri = Spritebatch(ASSETS_DIR+"sprites/player/player.png",(0,0,0));
-npc = Char(16,16,"Changuito")
-npc.set_images([spri.image_at(0,0,16,16),spri.image_at(0,16*2,16,16),spri.image_at(0,16*6,16,16)])
-npc.set_anim("test",[0,1,2])
 
 fondo=Spritebatch(ASSETS_DIR+"/levels/level.png",None).image_at(0,0,1600,256);
-npc.y=178
-
 
 RenderGroup = pygame.sprite.Group()
-RenderGroup.add(npc)
+
+pj = Player(16,16,"Jugador")
+pj.set_images([spri.image_at(0,0,16,16),spri.image_at(0,16*2,16,16),spri.image_at(0,16*6,16,16)])
+pj.set_anim("test",[0,1,2])
+pj.y = 178
+RenderGroup.add(pj)
+
+Monito = Macaco(16,16,"Bot",0)
+Monito.set_images([spri.image_at(0,0,16,16),spri.image_at(0,16*2,16,16),spri.image_at(0,16*6,16,16)])
+Monito.set_anim("test",[0,1,2])
+Monito.y = 178
+RenderGroup.add(Monito)
 
 
 print("Si")
 camera = Cam(0,0,256,240)
 
 def Update(self):
-    if(Controles.der):
-        npc.vecx = 1
-    if(Controles.izq):
-        npc.vecx = -1
+    camera.LookAt(pj.x+6,pj.y-58)
 
-    npc.update_internals()
-    camera.LookAt(npc.x+6,npc.y-58)
+
+    RenderGroup.update();
 
 
 def Draw(self):
