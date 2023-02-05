@@ -7,7 +7,7 @@ class Spritebatch:
         self.colorkey = colorkey
         self.hashtable = {}
     def image_at(self,x,y,dx,dy):
-        hsh = x+y+dx+dy
+        hsh = str(x)+str(y)+str(dx)+str(dy)
         try:
             img = self.hashtable[hsh]
             return img

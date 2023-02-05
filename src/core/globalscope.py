@@ -21,7 +21,11 @@ class State:
         self.screen = pygame.display.set_mode((W,H))
         print("e")
 
+    def Destroy(self,placeholder):
+        pass
+
     def Update(self,placeholder):
+
         pass
     def Draw(self,placeholder):
         pass
