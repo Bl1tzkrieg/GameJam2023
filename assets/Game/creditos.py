@@ -15,14 +15,18 @@ import random
 
 img = load_image(ASSETS_DIR+"logo/Credits.png")
 
+camera = Cam(0,0,640,480)
+
 def Draw(self):
-    Global.screen.fill((0,0,0))
-    Global.screen.blit(img,(0,0))
-    
+    camera.surface.fill((0,0,0))
+    camera.surface.blit(img,(362,145))
+    Global.screen.blit(camera.getSubSurface(),(0,0))
+
     pass
 
 def Update(self):
     if(Controles.can):
+        Controles.can = False
         mod = importlib.import_module("assets.Game.menu")
         mod.Init()
         mod.Update(None)
@@ -30,11 +34,11 @@ def Update(self):
     
 
 def Destroy(self):
-    pass
+    SoundPlayer.stop_pooling()
 
 def Init():
-  #  SoundPlayer.pooling(ASSETS_DIR+"sounds/levels/level1.ogg")
     SoundPlayer.stop_pooling()
+    SoundPlayer.pooling(ASSETS_DIR+"sounds/levels/level3.ogg")
     Global.Update = Update;
     Global.Draw = Draw;
     Global.Destroy = Destroy;

@@ -55,14 +55,14 @@ menu = Menu(opciones)
 camera = Cam(16*15,0,256,240)
 sprig = Spritebatch(ASSETS_DIR+"sprites/player/player.png",(0,0,0));
 RenderGroup = pygame.sprite.Group()
-mono = Macaco(16,16,"Bueno"+str(0))
+mono = Macaco(16,16,"Bueno"+str(0),mute=True)
 mono.Afiliacion=1
 mono.LoadSheet(sprig,4,8)
 mono.y = 75
 mono.x = (16*10)+(16*-5)
 RenderGroup.add(mono)
 
-mono = Macaco(16,16,"Bueno"+str(0))
+mono = Macaco(16,16,"Bueno"+str(0),mute=True)
 mono.Afiliacion=1
 mono.LoadSheet(sprig,4,8)
 mono.y = 75

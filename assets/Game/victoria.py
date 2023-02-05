@@ -16,10 +16,15 @@ import random
 img = load_image(ASSETS_DIR+"logo/victory.png")
 fondo = load_image(ASSETS_DIR+"sprites/fondo.jpg")
 
+camera = Cam(0,0,640,480)
+
 def Draw(self):
-    Global.screen.fill((0,0,0))
-    Global.screen.blit(fondo,(0,0))
-    Global.screen.blit(img,(0,0))
+    camera.surface.fill((0,0,0))
+    camera.surface.blit(fondo,(362,145))
+    camera.surface.blit(img,(362,145))
+
+    
+    Global.screen.blit(camera.getSubSurface(),(0,0))
     pass
 
 def Update(self):
@@ -31,10 +36,11 @@ def Update(self):
     
 
 def Destroy(self):
-    pass
+    SoundPlayer.stop_pooling()
 
 def Init():
-  #  SoundPlayer.pooling(ASSETS_DIR+"sounds/levels/level1.ogg")
+    SoundPlayer.stop_pooling()
+    SoundPlayer.pooling(ASSETS_DIR+"sounds/levels/level1.ogg")
     Global.Update = Update;
     Global.Draw = Draw;
     Global.Destroy = Destroy;
