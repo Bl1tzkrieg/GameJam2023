@@ -101,7 +101,7 @@ def Draw(self):
 
 
 def Init():
-    SoundPlayer.pooling(ASSETS_DIR+"sounds/levels/level1.ogg")
+    SoundPlayer.pooling(ASSETS_DIR+"sounds/levels/level1.ogg",0.2)
     Global.Update = Update;
     Global.Draw = Draw;
     Global.Destroy = Destroy;
