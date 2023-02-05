@@ -82,6 +82,7 @@ def Update(self):
     if(pj.Vida <= 0):
         Destroy(None)
         mod = importlib.import_module("assets.Game.muerto")
+        importlib.reload(mod)
         mod.Init()
         mod.Update(None)
         mod.DrawBG(None)
@@ -90,6 +91,7 @@ def Update(self):
     if(pj.Puntos == 30):
         Destroy(None)
         mod = importlib.import_module("assets.Game.lvl2")
+        importlib.reload(mod)
         mod.Init()
         mod.Update(None)
         mod.DrawBG(None)
