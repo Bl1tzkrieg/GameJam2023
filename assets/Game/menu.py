@@ -10,7 +10,6 @@ from assets.base.soundplayer import SoundPlayer
 
 import sys
 
-print("CARGADO")
 
 def comenzar_nuevo_juego():
     SoundPlayer.stop_pooling()
@@ -25,6 +24,10 @@ def mostrar_opciones():
 
 def creditos():
     print (" Función que muestra los creditos del programa.")
+    mod = importlib.import_module("assets.Game.creditos")
+    importlib.reload(mod)
+    mod.Init()
+    mod.Update(None)
 
 def salir_del_programa():
     import sys
@@ -42,6 +45,8 @@ pygame.font.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 fondo = load_image(ASSETS_DIR+"sprites/fondo.jpg", True).convert()
 fondo = pygame.transform.scale(fondo, (SCREEN_WIDTH, SCREEN_HEIGHT))
+logo = load_image(ASSETS_DIR+"logo/logo.png", True)
+logo = pygame.transform.scale(logo, (SCREEN_WIDTH, SCREEN_HEIGHT))
 #pygame.mixer.music.load(ASSETS_DIR+"sounds/menu.ogg")
 menu = Menu(opciones)
 
@@ -52,6 +57,7 @@ def DrawBG(self):
     if Global.height_t < SCREEN_HEIGHT:
         Global.height_t = Global.height_t+(Global.H/120)
     screen.blit(pygame.transform.scale(fondo, (Global.width_t, Global.height_t)),(0,0))
+    screen.blit(pygame.transform.scale(logo, (SCREEN_WIDTH, Global.height_t)),(0,0))
     if Global.timer == 0:
         menu.imprimir(screen)
 
@@ -64,11 +70,11 @@ def Update(self):
         Global.timer = Global.timer-1
 
 def Init():
-    #pygame.mixer.music.play()
     SoundPlayer.pooling(ASSETS_DIR+"sounds/menu.ogg")
     pygame.event.wait()
     Global.timer = 120
     Global.Draw = DrawBG
     Global.Update = Update
     Global.height_t = 0
+    Global.height_tt = 0
     Global.width_t = 0

@@ -21,16 +21,23 @@ class Macaco(Char):
     def Atacar(self,objetivo):
         torpeza = random.randint(0,3-self.Afiliacion)
         if torpeza == 0:
-            rand_sound = random.randint(0,2)
+            rand_sound = random.randint(0,90)
             objetivo.Vida = objetivo.Vida - (self.Ataque)
             if(self.ia_mind != 2):
                 self.ia_mind =2
-                if rand_sound == 0:
+                if rand_sound <= 30:
+                    SoundPlayer.pooling(ASSETS_DIR+"sounds/interactions/punch1.ogg",0.1)
+                elif rand_sound <= 60:
+                    SoundPlayer.pooling(ASSETS_DIR+"sounds/interactions/punch2.ogg",0.1)
+                elif rand_sound <= 90:
+                    SoundPlayer.pooling(ASSETS_DIR+"sounds/interactions/punch3.ogg",0.1)
+                if rand_sound <= 30:
                     SoundPlayer.pooling(ASSETS_DIR+"sounds/"+self.raza+"/hostile1.ogg")
-                elif rand_sound == 1:
+                elif rand_sound <= 60:
                     SoundPlayer.pooling(ASSETS_DIR+"sounds/"+self.raza+"/hostile2.ogg")
-                elif rand_sound == 2:
+                elif rand_sound <= 90:
                     SoundPlayer.pooling(ASSETS_DIR+"sounds/"+self.raza+"/hostile3.ogg")
+                rand_sound = random.randint(0,90)
 
     def LoadSheet(self,image,W,H):
         arr = []
@@ -46,13 +53,13 @@ class Macaco(Char):
 
     def CheckMuerte(self):   
         if(self.Vida <=0):
-            rand_sound = random.randint(0,2)
+            rand_sound = random.randint(0,90)
 
-            if rand_sound == 0:
+            if rand_sound <= 30:
                 SoundPlayer.pooling(ASSETS_DIR+"sounds/"+self.raza+"/death1.ogg")
-            elif rand_sound == 1:
+            elif rand_sound <= 60:
                 SoundPlayer.pooling(ASSETS_DIR+"sounds/"+self.raza+"/death2.ogg")
-            elif rand_sound == 2:
+            elif rand_sound <= 90:
                 SoundPlayer.pooling(ASSETS_DIR+"sounds/"+self.raza+"/death3.ogg")
             self.kill()
         pass
