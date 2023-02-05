@@ -4,6 +4,10 @@ from src.core.constants import *
 
 class State:
 
+    timer = 120
+    width_t = 0
+    height_t = 0
+
     def __init__(self,W,H):
         self.H = H
         self.W =W
@@ -25,7 +29,6 @@ class State:
         self.SetResolution(self.W,self.H)
         mod = importlib.import_module(File)
         mod.Init()
-            
 
-Global = State(SCREEN_WIDTH,SCREEN_HEIGHT);
+Global = State(SCREEN_WIDTH,SCREEN_HEIGHT)
 print("Global Init")
