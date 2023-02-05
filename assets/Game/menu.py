@@ -9,9 +9,12 @@ from src.interfaces.menu import *
 
 import sys
 
+print("CARGADO")
+
 def comenzar_nuevo_juego():
     print (" Función que muestra un nuevo juego.")
     mod = importlib.import_module("assets.Game.lvl1")
+    importlib.reload(mod)
     mod.Init()
     mod.Update(None)
 
@@ -37,11 +40,11 @@ pygame.font.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 fondo = load_image(ASSETS_DIR+"sprites/fondo.jpg", True).convert()
 fondo = pygame.transform.scale(fondo, (SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.mixer.init()
-pygame.mixer.music.load(ASSETS_DIR+"sounds/menu.ogg")
+#pygame.mixer.music.load(ASSETS_DIR+"sounds/menu.ogg")
 menu = Menu(opciones)
 
 def DrawBG(self):
+    screen.fill((0,0,0))
     if Global.width_t < SCREEN_WIDTH:
         Global.width_t = Global.width_t+(Global.W/120)
     if Global.height_t < SCREEN_HEIGHT:
@@ -59,8 +62,10 @@ def Update(self):
         Global.timer = Global.timer-1
 
 def Init():
-    pygame.mixer.music.play()
-    pygame.event.wait()
+    #    pygame.mixer.music.play()
+    #pygame.event.wait()
     Global.timer = 120
     Global.Draw = DrawBG
     Global.Update = Update
+    Global.height_t = 0
+    Global.width_t = 0
