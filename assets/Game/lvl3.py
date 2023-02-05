@@ -37,7 +37,7 @@ pj.x = (16*10)+(16*7)
 RenderGroup.add(pj)
 
 for i in range(2):
-    mono = Macaco(16,16,"Bueno"+str(i))
+    mono = Macaco(16,16,"Bueno"+str(i),raza="human_male")
     mono.Afiliacion=1
     mono.LoadSheet(sprig,4,8)
     mono.y = -16
@@ -45,15 +45,15 @@ for i in range(2):
     RenderGroup.add(mono)
 
 for i in range(1):
-    mono = Macaco(16,16,"Bueno"+str(i))
+    mono = Macaco(16,16,"Bueno"+str(i),raza="human_female")
     mono.Afiliacion=1
     mono.LoadSheet(spri2w,4,8)
     mono.y = -16
     mono.x = (16*10)+(16*random.randint(1,10))
     RenderGroup.add(mono)
 
-for i in range(2):
-    mono = Macaco(16,16,"Bueno"+str(i))
+for i in range(4):
+    mono = Macaco(16,16,"Bueno"+str(i),raza="human_female")
     mono.Afiliacion=1
     mono.LoadSheet(sprigw,4,8)
     mono.y = -16
@@ -61,7 +61,7 @@ for i in range(2):
     RenderGroup.add(mono)
 
 for i in range(3):
-    mono = Macaco(16,16,"Malo"+str(i))
+    mono = Macaco(16,16,"Malo"+str(i),raza="human_male")
     mono.Afiliacion=2
     mono.LoadSheet(spri2,4,8)
     mono.y = -16
@@ -121,7 +121,7 @@ def Draw(self):
 
 
 def Init():
-    SoundPlayer.pooling(ASSETS_DIR+"sounds/levels/level3.ogg")
+    SoundPlayer.pooling(ASSETS_DIR+"sounds/levels/level3.ogg",0.2)
     Global.Update = Update;
     Global.Draw = Draw;
     Global.Destroy = Destroy;

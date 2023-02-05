@@ -4,7 +4,7 @@ import random
 
 class Macaco(Char):
 
-    def __init__(self,W,H,nombre,Afiliacion=1,Ataque=25/60,Vida=100,Tipo=0,Sexo=0):
+    def __init__(self,W,H,nombre,Afiliacion=1,Ataque=25/60,Vida=100,Tipo=0,Sexo=0,raza='monk'):
         super().__init__(W,H,nombre,Tipo);
         self.Afiliacion=1
         self.mov_speed = 1;
@@ -16,6 +16,7 @@ class Macaco(Char):
         self.Vida=Vida
         self.Ataque = Ataque
         self.Sexo = Sexo
+        self.raza = raza
 
     def Atacar(self,objetivo):
         torpeza = random.randint(0,3-self.Afiliacion)
@@ -25,11 +26,11 @@ class Macaco(Char):
             if(self.ia_mind != 2):
                 self.ia_mind =2
                 if rand_sound == 0:
-                    SoundPlayer.pooling(ASSETS_DIR+"sounds/monk/hostile1.ogg")
+                    SoundPlayer.pooling(ASSETS_DIR+"sounds/"+self.raza+"/hostile1.ogg")
                 elif rand_sound == 1:
-                    SoundPlayer.pooling(ASSETS_DIR+"sounds/monk/hostile2.ogg")
+                    SoundPlayer.pooling(ASSETS_DIR+"sounds/"+self.raza+"/hostile2.ogg")
                 elif rand_sound == 2:
-                    SoundPlayer.pooling(ASSETS_DIR+"sounds/monk/hostile3.ogg")
+                    SoundPlayer.pooling(ASSETS_DIR+"sounds/"+self.raza+"/hostile3.ogg")
 
     def LoadSheet(self,image,W,H):
         arr = []
@@ -48,11 +49,11 @@ class Macaco(Char):
             rand_sound = random.randint(0,2)
 
             if rand_sound == 0:
-                SoundPlayer.pooling(ASSETS_DIR+"sounds/monk/death1.ogg")
+                SoundPlayer.pooling(ASSETS_DIR+"sounds/"+self.raza+"/death1.ogg")
             elif rand_sound == 1:
-                SoundPlayer.pooling(ASSETS_DIR+"sounds/monk/death2.ogg")
+                SoundPlayer.pooling(ASSETS_DIR+"sounds/"+self.raza+"/death2.ogg")
             elif rand_sound == 2:
-                SoundPlayer.pooling(ASSETS_DIR+"sounds/monk/death3.ogg")
+                SoundPlayer.pooling(ASSETS_DIR+"sounds/"+self.raza+"/death3.ogg")
             self.kill()
         pass
    
@@ -101,7 +102,6 @@ class Macaco(Char):
                     if((s.Tipo==0)):
                         if(abs(self.x-s.x)<(16*5)):
                             
-                            rand_sound = random.randint(0,2)
 
                             if(s.Afiliacion == 0):
                                 print("VER AL CHANGO") 
@@ -118,12 +118,13 @@ class Macaco(Char):
                             else:
                                 if(self.ia_mind != 1):
                                     self.ia_mind =1
-                                    if rand_sound == 0:
-                                        SoundPlayer.pooling(ASSETS_DIR+"sounds/monk/seek1.ogg")
-                                    elif rand_sound == 1:
-                                        SoundPlayer.pooling(ASSETS_DIR+"sounds/monk/seek2.ogg")
-                                    elif rand_sound == 2:
-                                        SoundPlayer.pooling(ASSETS_DIR+"sounds/monk/seek3.ogg")
+                                    rand_sound = random.randint(0,90)
+                                    if rand_sound <= 30:
+                                        SoundPlayer.pooling(ASSETS_DIR+"sounds/"+self.raza+"/seek1.ogg")
+                                    elif rand_sound <= 60:
+                                        SoundPlayer.pooling(ASSETS_DIR+"sounds/"+self.raza+"/seek2.ogg")
+                                    elif rand_sound <= 90:
+                                        SoundPlayer.pooling(ASSETS_DIR+"sounds/"+self.raza+"/seek3.ogg")
 
             if((self.x<=Global.Boundary_X_Min)):
                 self.target_x = random.randint(self.x,self.x+10)

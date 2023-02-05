@@ -3,13 +3,12 @@ import time
 
 class SoundPlayer():
 
-    def pooling(dir):
-        for i in range(16):
-            print(pg.mixer.Channel(i).get_busy())
+    def pooling(dir, volume=1.0):
+        for i in range(4):
             if not pg.mixer.Channel(i).get_busy():
+                pg.mixer.Channel(i).set_volume(volume)
                 pg.mixer.Channel(i).play(pg.mixer.Sound(dir))
                 break
     def stop_pooling():
-        print("stopppppp")
         for i in range(16):
             pg.mixer.Channel(i).stop()
