@@ -50,12 +50,23 @@ for i in range(2):
     mono.x = (16*62)-(16*random.randint(1,10))
     RenderGroup.add(mono)
 
-for i in range (3):
-    f = Fruta(23,23,"Fruta",10);
-    f.LoadSheet(fpri,2,4)
-    f.y = -17
-    f.x = (16*10)+(random.randint(1,16*60))
-    RenderGroup.add(f)
+f = Fruta(23,23,"Fruta",10);
+f.LoadSheet(fpri,2,4)
+f.y = -17
+f.x = (16*10)+(16*5)
+RenderGroup.add(f)
+
+f = Fruta(23,23,"Fruta",10);
+f.LoadSheet(fpri,2,4)
+f.y = -17
+f.x = (16*10)+(16*30)
+RenderGroup.add(f)
+
+f = Fruta(23,23,"Fruta",10);
+f.LoadSheet(fpri,2,4)
+f.y = -17
+f.x = (16*10)+(16*50)
+RenderGroup.add(f)
 
 
 def Destroy(self):

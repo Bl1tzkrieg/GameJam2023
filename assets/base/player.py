@@ -1,4 +1,5 @@
 from assets.base.mandril import *
+from assets.base.soundplayer import SoundPlayer
 from src.core.Inputs import *
 
 from assets.Game.menu import *
@@ -30,6 +31,7 @@ class Player(Macaco):
     def SumarPunt(self,s):
         #sumar puntos
         self.Puntos = self.Puntos+s.Puntos
+        SoundPlayer.pooling(ASSETS_DIR+"sounds/interactions/grab.ogg")
         s.Kill()
         pass
 
