@@ -3,7 +3,7 @@ from pygame.locals import *
 import os
 import sys
 
-def load_image(path, alpha=False):
+def load_image(path, alpha=True):
     ruta = path
     try:
         image = pygame.image.load(ruta)
