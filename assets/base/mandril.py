@@ -3,7 +3,7 @@ import random
 
 class Macaco(Char):
 
-    def __init__(self,W,H,nombre,Afiliacion=1,Ataque=25/60,Vida=100,Tipo=0):
+    def __init__(self,W,H,nombre,Afiliacion=1,Ataque=25/60,Vida=100,Tipo=0,Sexo=0):
         super().__init__(W,H,nombre,Tipo);
         self.Afiliacion=1
         self.mov_speed = 1;
@@ -13,6 +13,7 @@ class Macaco(Char):
         self.ia_state = 2;
         self.Vida=Vida
         self.Ataque = Ataque
+        self.Sexo = Sexo
 
     def Atacar(self,objetivo):
         objetivo.vida = objetivo.vida - self.ataque
