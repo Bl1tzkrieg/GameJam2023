@@ -6,12 +6,14 @@ from src.core.constants import *
 from src.core.spritesheets import *
 from src.core.Inputs import *
 from src.interfaces.menu import *
+from assets.base.soundplayer import SoundPlayer
 
 import sys
 
 print("CARGADO")
 
 def comenzar_nuevo_juego():
+    SoundPlayer.stop_pooling()
     print (" Función que muestra un nuevo juego.")
     mod = importlib.import_module("assets.Game.lvl1")
     importlib.reload(mod)
@@ -62,8 +64,9 @@ def Update(self):
         Global.timer = Global.timer-1
 
 def Init():
-    #    pygame.mixer.music.play()
-    #pygame.event.wait()
+    #pygame.mixer.music.play()
+    SoundPlayer.pooling(ASSETS_DIR+"sounds/menu.ogg")
+    pygame.event.wait()
     Global.timer = 120
     Global.Draw = DrawBG
     Global.Update = Update
