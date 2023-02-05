@@ -15,7 +15,7 @@ import random
 
 #Cargar fondo y sus capas
 #pygame.mixer.music.load(ASSETS_DIR+"sounds/levels/level1.ogg")
-fondo = [load_image("assets/levels/lvl1/ground.png"),load_image("assets/levels/lvl1/arboles.png"),pygame.transform.scale(load_image("assets/levels/lvl1/sky.png"),(1600,256))]
+fondo = [load_image("assets/levels/lv2/sand.png"),load_image("assets/levels/lv2/mar.png"),pygame.transform.scale(load_image("assets/levels/lv2/sky.png"),(1600,256)),pygame.transform.scale(load_image("assets/levels/lvl1/sky.png"),(1600,256))]
 
 RenderGroup = pygame.sprite.Group()
 
@@ -23,9 +23,9 @@ Global.Boundary_X_Min = 16*10
 Global.Boundary_X_Max =  16*65
 
 fpri = Spritebatch("assets/frutas/frutas.png",(0,0,0))
-sprig = Spritebatch(ASSETS_DIR+"sprites/player/playergray.png",(0,0,0));
-spri = Spritebatch(ASSETS_DIR+"sprites/player/player.png",(0,0,0));
-spri2 = Spritebatch(ASSETS_DIR+"sprites/player/enemy.png",(0,0,0));
+sprig = Spritebatch(ASSETS_DIR+"sprites/player/missinglink.png",(0,0,0));
+spri = Spritebatch(ASSETS_DIR+"sprites/player/missinglinkcolor.png",(0,0,0));
+spri2 = Spritebatch(ASSETS_DIR+"sprites/player/missinglinkcolor2.png",(0,0,0));
 
 
 pj = Player(16,16,"Jugador")
@@ -75,10 +75,9 @@ def Update(self):
         mod.Update(None)
         mod.DrawBG(None)
         return
-    print(pj.Puntos)
-    if(pj.Puntos == 30):
+    if(pj.Puntos >= 30):
         Destroy(None)
-        mod = importlib.import_module("assets.Game.lvl2")
+        mod = importlib.import_module("assets.Game.lvl3")
         mod.Init()
         mod.Update(None)
         mod.DrawBG(None)
@@ -89,10 +88,12 @@ def Update(self):
 def Draw(self):
     camera.surface.fill((0,50,200))
     r=fondo[2].get_rect()
-    camera.blit(fondo[2],pygame.Rect(r.x-(pj.x*0.3),r.y-230,r.width,r.height))
+    camera.blit(fondo[2],pygame.Rect(r.x-(pj.x*0.1),r.y-230,r.width,r.height))
     r=fondo[1].get_rect()
-    camera.blit(fondo[1],pygame.Rect(r.x+(pj.x*0.1),r.y-30,r.width,r.height))
+    camera.blit(fondo[1],pygame.Rect(r.x-(pj.x*0.2),r.y-31,r.width,r.height))
     camera.blit(fondo[0],fondo[0].get_rect())
+
+
 
 
     RenderGroup.draw(camera)
@@ -101,7 +102,7 @@ def Draw(self):
 
 
 def Init():
-    SoundPlayer.pooling(ASSETS_DIR+"sounds/levels/level1.ogg")
+    SoundPlayer.pooling(ASSETS_DIR+"sounds/levels/level2.ogg")
     Global.Update = Update;
     Global.Draw = Draw;
     Global.Destroy = Destroy;

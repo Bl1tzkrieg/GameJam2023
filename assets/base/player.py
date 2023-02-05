@@ -10,6 +10,7 @@ class Player(Macaco):
         self.Afiliacion=0
         self.Ataque=Ataque
         self.Vida = Vida
+        self.Puntos=0
     
     def updateAnim(self):
         self.cur_anim="idle"
@@ -21,19 +22,19 @@ class Player(Macaco):
     def CheckMuerte(self):
         if(self.Vida <=0):
         #Volver al menu
-            mod = importlib.import_module("assets.Game.menu")
-
-            mod.Init()
-            mod.Update(None)
-            mod.DrawBG(None)
+        
             
             pass
         pass
 
     def SumarPunt(self,s):
         #sumar puntos
+        self.Puntos = self.Puntos+s.Puntos
         s.Kill()
         pass
+
+    def Atacar(self, objetivo):
+        objetivo.Vida = objetivo.Vida - (self.Ataque)
 
     def Actuar(self):
         for g in self.groups():
