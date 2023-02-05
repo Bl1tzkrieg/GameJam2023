@@ -1,8 +1,10 @@
 import pygame
+from src.core.globalscope import *
 
 class Char(pygame.sprite.Sprite):
-    def __init__(self,W,H,nombre):
+    def __init__(self,W,H,nombre,Tipo):
         pygame.sprite.Sprite.__init__(self)
+        self.Tipo = Tipo
         self.x = 0
         self.y = 0
         self.vecx = 0
@@ -45,6 +47,11 @@ class Char(pygame.sprite.Sprite):
  
 
 
+    def Check_boundaries(self):
+        if(self.x < Global.Boundary_X_Min):
+            self.x = 0
+        if(self.y > Global.Boundary_X_Max):
+            self.x = Global.Boundary_X_Max-self.rect.width
 
     def update_pos(self):
         self.x = self.x+self.vecx
@@ -57,6 +64,7 @@ class Char(pygame.sprite.Sprite):
 
     def update_internals(self):
         self.update_pos()
+        self.Check_boundaries();
         self.update_rect()
         self.update_image()
 
