@@ -11,6 +11,9 @@ from src.interfaces.menu import *
 import sys
 
 def comenzar_nuevo_juego():
+    pygame.mixer.music.stop()
+    pygame.mixer.music.load(ASSETS_DIR+"sounds/levels/level1.ogg")
+    pygame.mixer.music.play()
     print (" Función que muestra un nuevo juego.")
     mod = importlib.import_module("assets.scripts.testmonito")
     mod.Init()
