@@ -91,7 +91,7 @@ class Macaco(Char):
                 self.ia_state = 1
                 print("Colision")
             if((self.x>=Global.Boundary_X_Max-self.rect.width)):
-                self.target_x = random.randint(self.x,self.x-10)
+                self.target_x = random.randint(self.x-10,self.x)
                 self.ia_counter = 60
                 self.ia_state = 1
                 print("Colision")

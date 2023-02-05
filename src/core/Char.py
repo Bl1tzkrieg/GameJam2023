@@ -41,8 +41,8 @@ class Char(pygame.sprite.Sprite):
                 self.anim_counter=0.0
             
           
-        except:
-            print("ERROR")
+        except Exception as e: 
+            print(e)
             self.image = None
  
 
