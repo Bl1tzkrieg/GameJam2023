@@ -49,9 +49,10 @@ class Char(pygame.sprite.Sprite):
 
     def Check_boundaries(self):
         if(self.x < Global.Boundary_X_Min):
-            self.x = 0
-        if(self.y > Global.Boundary_X_Max):
-            self.x = Global.Boundary_X_Max-self.rect.width
+            self.x = Global.Boundary_X_Min
+        if(self.x >= Global.Boundary_X_Max):
+            self.x = Global.Boundary_X_Max
+            self.vecx = 0
 
     def update_pos(self):
         self.x = self.x+self.vecx

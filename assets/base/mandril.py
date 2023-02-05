@@ -16,14 +16,31 @@ class Macaco(Char):
         self.Sexo = Sexo
 
     def Atacar(self,objetivo):
-        objetivo.vida = objetivo.vida - self.ataque
+        objetivo.Vida = objetivo.Vida - self.Ataque
         pass
+
+    def LoadSheet(self,image,W,H):
+        arr = []
+        for h in range(H):
+            for w in range(W):
+                print(str(w)+","+str(h))
+                arr.append(image.image_at(w*self.rect.width,h*self.rect.height,self.rect.width,self.rect.height))
+        self.set_images(arr);
+
+        self.set_anim("idle",[0,0,0,0])
+        self.set_anim("izq",[8,9,10,11])
+        self.set_anim("der",[24,25,26,27])
 
     def CheckMuerte(self):
         if(self.Vida <=0):
             self.Kill()
         pass
-    
+   
+    def updateAnim(self):
+        if(self.vecx > 0):
+            self.cur_anim = "der"
+        if(self.vecx < 0):
+            self.cur_anim = "izq"
 
     def update(self,*args):
         self.update_internals();
@@ -56,12 +73,12 @@ class Macaco(Char):
                 for s in g.sprites():
                     if((s.Afiliacion==0) and (s.Tipo==0)):
                         if(abs(self.x-s.x)<(16*5)):
-                            print("VER AL CHANGO")
+                            #                            print("VER AL CHANGO")
                             self.target_x = s.x;
                             self.ia_counter = 60
 
                             if(self.Afiliacion==2):
-                                if((abs.self.x-s.x)<(20)):
+                                if(abs(self.x-s.x)<(20)):
                                     print("AL ATAQUE")
                                     self.Atacar(s)
                                 
@@ -83,6 +100,6 @@ class Macaco(Char):
                 self.ia_state=0
                 return
             self.ia_state=1
-            pass
 
+        self.updateAnim();
         
