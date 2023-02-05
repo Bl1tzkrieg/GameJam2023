@@ -100,16 +100,15 @@ def Update(self):
     if(pj.Vida <= 0):
         Destroy(None)
         mod = importlib.import_module("assets.Game.muerto")
+        importlib.reload(mod)
         mod.Init()
         mod.Update(None)
-        mod.DrawBG(None)
         return
     if(pj.Puntos == 30):
         Destroy(None)
         mod = importlib.import_module("assets.Game.victoria")
         mod.Init()
         mod.Update(None)
-        mod.DrawBG(None)
         pass
 
     

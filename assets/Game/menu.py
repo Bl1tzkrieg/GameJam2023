@@ -14,6 +14,7 @@ import sys
 
 
 def comenzar_nuevo_juego():
+    Destroy()
     SoundPlayer.stop_pooling()
     print (" Función que muestra un nuevo juego.")
     mod = importlib.import_module("assets.Game.lvl1")
@@ -26,6 +27,7 @@ def mostrar_opciones():
 
 def creditos():
     print (" Función que muestra los creditos del programa.")
+    Destroy()
     mod = importlib.import_module("assets.Game.creditos")
     importlib.reload(mod)
     mod.Init()
@@ -85,6 +87,9 @@ def DrawBG(self):
     sub.set_colorkey((0,0,0))
     print("COLORKEY"+str(sub.get_colorkey()))
     screen.blit(sub,(0,0))
+
+def Destroy():
+    RenderGroup.empty()
 
 def Update(self):
     RenderGroup.update()

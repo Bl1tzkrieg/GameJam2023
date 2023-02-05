@@ -29,7 +29,10 @@ def Draw(self):
 
 def Update(self):
     if(Controles.can):
+        Controles.can = 0
+        Destroy(None)
         mod = importlib.import_module("assets.Game.menu")
+        importlib.reload(mod)
         mod.Init()
         mod.Update(None)
         mod.DrawBG(None)
