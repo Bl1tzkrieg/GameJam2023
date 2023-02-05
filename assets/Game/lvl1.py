@@ -10,6 +10,7 @@ import sys
 from src.core.Cam import *
 from assets.base.mandril import *
 from assets.base.player import *
+from assets.base.fruta import *
 import random
 
 #Cargar fondo y sus capas
@@ -26,7 +27,7 @@ RenderGroup.add(pj)
 
 for i in range(6):
     mono = Macaco(16,16,"Bueno"+str(i))
-    mono.Afiliacion=2
+    mono.Afiliacion=1
     mono.LoadSheet(spri,4,8)
     mono.y = -16
     mono.x = (16*10)+(16*random.randint(1,10))
@@ -34,6 +35,10 @@ for i in range(6):
 
 Global.Boundary_X_Min = 16*10
 Global.Boundary_X_Max =  16*50
+
+fpri = Spritebatch("assets/frutas/",(0,0,0))
+f = Fruta(16,16,"Fruta",10);
+f.LoadSheet()
 
 
 camera = Cam(0,0,256,240)

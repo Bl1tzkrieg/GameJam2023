@@ -6,4 +6,11 @@ class Fruta(Char):
         super().__init__(W,H,nombre,1)
         self.Puntos = puntos
 
-
+    def LoadSheet(self,image,W,H):
+        arr = []
+        for h in range(H):
+            for w in range(W):
+                print(str(w)+","+str(h))
+                arr.append(image.image_at(w*self.rect.width,h*self.rect.height,self.rect.width,self.rect.height))
+        self.set_images(arr);
+        self.cur_image = 0;
