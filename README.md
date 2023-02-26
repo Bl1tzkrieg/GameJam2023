@@ -1,9 +1,10 @@
 # GameJam2023
 This game was developed for the GameJam 2023, that is an international event that have the objetive to build a videogame in just 48 hours, the game is build entirely in Python 3.8 and with the PyGame Library withut any game engine.
 
-Put yourself in the shoes of a monkey in search of food for its survival and evolution. Fight for your survival and that of your tribe, to survive is to adapt to changes... A new destiny begins. Controls: Select option in Menu = Enter, Move = Arrow keys, Go back in menus = Backspace, Fight and collect food = Space bar.
-
 ![image](https://user-images.githubusercontent.com/44822982/221429506-97455be8-cbdd-482a-adb9-eedff24f45eb.png)
+
+
+Put yourself in the shoes of a monkey in search of food for its survival and evolution. Fight for your survival and that of your tribe, to survive is to adapt to changes... A new destiny begins. Controls: Select option in Menu = Enter, Move = Arrow keys, Go back in menus = Backspace, Fight and collect food = Space bar.
 
 ![image](https://user-images.githubusercontent.com/44822982/221429629-8a83266b-c6f2-4f1c-89e3-fcd44e42d2bc.png)
 
@@ -13,7 +14,9 @@ Put yourself in the shoes of a monkey in search of food for its survival and evo
 
 Technology Notes: 
 Python 3 + Pygame library
+
 Credits: 
+
 Luis Delgado: Programmer
 
 Luis Bermudez: Programmer/Sound Design
